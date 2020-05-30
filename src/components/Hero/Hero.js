@@ -8,14 +8,7 @@ const Hero = props => {
 
   return (
     <React.Fragment>
-      <section className="hero">
-        {/* <h1>
-          This is a demo site of&nbsp;the <strong>heroBlog</strong> GatsbyJS starter
-        </h1>
-        <button onClick={scrollToContent} aria-label="scroll">
-          <FaArrowDown />
-        </button> */}
-      </section>
+      <section className="hero">{/* --- STYLES --- */}</section>
 
       {/* --- STYLES --- */}
       <style jsx>{`
@@ -29,7 +22,7 @@ const Hero = props => {
           flex-flow: column nowrap;
           justify-content: center;
           min-height: 0vh;
-          height: 100px;
+          height: 50px;
           padding: ${theme.space.inset.l};
           padding-top: ${theme.header.height.homepage};
         }
