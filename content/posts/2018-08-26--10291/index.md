@@ -1,12 +1,10 @@
 ---
 title: ポチポチ手動で作成したAWSの既存リソースをTerraformに取り込むスクリプト with terraforming
-category: "testimonies"
-cover: photo-1507915600431-5292809c5ab7.jpg
+category: "infrastructure"
+cover: wineman.png
 author: mihirat
 ---
 
-<!-- # 
-				ポチポチ手動で作成したAWSの既存リソースをTerraformに取り込むスクリプト with terraforming		 -->
 
 ## TL; DR
 
