@@ -1,130 +1,119 @@
-import PropTypes from "prop-types";
-import React from "react";
-import { graphql } from "gatsby";
-import { ThemeContext } from "../layouts";
-import Blog from "../components/Blog";
-import Hero from "../components/Hero";
-import Seo from "../components/Seo";
+import React from "react"
+import { Link, graphql } from "gatsby"
+import "bootstrap/dist/css/bootstrap.css"
+import "./index.css"
 
-class IndexPage extends React.Component {
-  separator = React.createRef();
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Sidebar from "../components/sidebar/Sidebar"
+import TechTag from "../components/tags/TechTag"
 
-  scrollToContent = e => {
-    this.separator.current.scrollIntoView({ block: "start", behavior: "smooth" });
-  };
+const IndexPage = ({ data }) => {
+  const posts = data.allMarkdownRemark.edges
+  const labels = data.site.siteMetadata.labels
+  const currentPage = 1
+  const postsPerPage = 10 // see limit in graphql query below
+  const nextPage = (currentPage + 1).toString()
+  const hasNextPage = data.allMarkdownRemark.totalCount > postsPerPage
 
-  render() {
-    const {
-      data: {
-        posts: { edges: posts = [] },
-        bgDesktop: {
-          resize: { src: desktop }
-        },
-        bgTablet: {
-          resize: { src: tablet }
-        },
-        bgMobile: {
-          resize: { src: mobile }
-        },
-        site: {
-          siteMetadata: { facebook }
+  const getTechTags = (tags) => {
+    const techTags = []
+    tags.forEach((tag, i) => {
+      labels.forEach((label) => {
+        if (tag === label.tag) {
+          techTags.push(<TechTag key={i} tag={label.tag} tech={label.tech} name={label.name} size={label.size} color={label.color} />)
         }
-      }
-    } = this.props;
-
-    const backgrounds = {
-      desktop,
-      tablet,
-      mobile
-    };
-
-    return (
-      <React.Fragment>
-        <ThemeContext.Consumer>
-          {theme => (
-            <Hero scrollToContent={this.scrollToContent} backgrounds={backgrounds} theme={theme} />
-          )}
-        </ThemeContext.Consumer>
-
-        <hr ref={this.separator} />
-
-        <ThemeContext.Consumer>
-          {theme => <Blog posts={posts} theme={theme} />}
-        </ThemeContext.Consumer>
-
-        <Seo facebook={facebook} />
-
-        <style jsx>{`
-          hr {
-            margin: 0;
-            border: 0;
-          }
-        `}</style>
-      </React.Fragment>
-    );
+      })
+    })
+    return techTags
   }
+
+
+  return (
+    <Layout>
+      <SEO title="Home" keywords={[`gatsby`, `javascript`, `react`, `web development`, `blog`, `graphql`]} />
+      <div className="index-main">
+        <div className="sidebar px-4 py-2">
+          <Sidebar />
+        </div>
+        <div className="post-list-main">
+          {posts.map((post) => {
+            const tags = post.node.frontmatter.tags
+            return (
+              <div key={post.node.id} className="container mt-5">
+                <Link
+                  to={post.node.fields.slug}
+                  className="text-dark"
+                >
+                  <h2 className="title">{post.node.frontmatter.title}</h2>
+                </Link>
+                <small className="d-block text-info"><i>Posted on {post.node.frontmatter.date}</i>
+                </small>
+                <p className="mt-3 d-inline">{post.node.excerpt}</p>
+                <Link
+                  to={post.node.fields.slug}
+                  className="text-primary"
+                >
+                  <small className="d-inline-block ml-3"> Read full post</small>
+                </Link>
+                <div className="d-block">
+                  {getTechTags(tags)}
+                </div>
+              </div>
+            )
+          })}
+          {hasNextPage &&
+            <div className="mt-4 text-center">
+              <Link to={nextPage} rel="next" style={{ textDecoration: `none` }}>
+                <span className="text-dark">Next Page →</span>
+              </Link>
+            </div>
+          }
+        </div>
+      </div>
+    </Layout>
+  )
 }
 
-IndexPage.propTypes = {
-  data: PropTypes.object.isRequired
-};
+export const pageQuery = graphql`
+         query IndexQuery {
+           site {
+             siteMetadata {
+               title 
+               author
+               labels {
+                 tag
+                 tech 
+                 name 
+                 size 
+                 color
+               } 
+             }
+           }
+           allMarkdownRemark(
+             limit: 3
+             sort: { fields: [frontmatter___date], order: DESC }
+             filter: { frontmatter: { published: { eq: true } } }
+           ) {
+             totalCount
+             edges {
+               node {
+                 excerpt(pruneLength: 200)
+                 html
+                 id
+                 frontmatter {
+                   title
+                   date(formatString: "MMMM DD, YYYY")
+                   tags
+                 }
+                 fields {
+                   slug
+                 }
+               }
+             }
+           }
+         }
+       `
 
-export default IndexPage;
+export default IndexPage
 
-//eslint-disable-next-line no-undef
-export const query = graphql`
-  query IndexQuery {
-    posts: allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "//posts/[0-9]+.*--/" } }
-      sort: { fields: [fields___prefix], order: DESC }
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-            prefix
-          }
-          frontmatter {
-            title
-            category
-            author
-            cover {
-              children {
-                ... on ImageSharp {
-                  fluid(maxWidth: 800, maxHeight: 360) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    site {
-      siteMetadata {
-        facebook {
-          appId
-        }
-      }
-    }
-    bgDesktop: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-      resize(width: 1200, quality: 90, cropFocus: CENTER) {
-        src
-      }
-    }
-    bgTablet: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-      resize(width: 800, height: 1100, quality: 90, cropFocus: CENTER) {
-        src
-      }
-    }
-    bgMobile: imageSharp(fluid: { originalName: { regex: "/hero-background/" } }) {
-      resize(width: 450, height: 850, quality: 90, cropFocus: CENTER) {
-        src
-      }
-    }
-  }
-`;
-
-//hero-background
