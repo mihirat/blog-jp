@@ -5,6 +5,7 @@ const siteConfig = require("./config")
 module.exports = {
   siteMetadata: {
     url: siteConfig.url,
+    siteUrl: siteConfig.url, // for gatsby-plugin-feed
     title: siteConfig.title,
     tagline: siteConfig.tagline,
     description: `A blog template for web developers that's ready to go out of the box. Feel free to modify it to your liking.`,
@@ -21,6 +22,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-feed`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
