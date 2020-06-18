@@ -29,7 +29,7 @@ const MobileSocialLinks = ({ contacts }) => {
                     <FaTwitterSquare size={26} style={{ color: "info" }} />
                 </span>
             </a> */}
-            <a className="text-success"
+            <a className="text-light"
                 href={contacts.medium}>
                 <span title="Medium">
                     <FaMedium size={26} style={{ color: "info" }} />

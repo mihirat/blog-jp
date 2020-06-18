@@ -29,6 +29,8 @@
 }
 .mobile-pages-main {
   width: 100%;
+  min-height: 2rem;
+  margin-top: 0.5rem;
   background: white;
   display: none;
 }
