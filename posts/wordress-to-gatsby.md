@@ -86,14 +86,10 @@ https://greendiver234.com/gatsby-blog-getting-started-4/
 
 ## 他に参考にしたブログ
 
-- WordpressブログをGatsby+Netlifyでリプレースした話。
-https://ver-1-0.net/2019/01/10/blog-renewal-by-gatsby
+- [WordpressブログをGatsby+Netlifyでリプレースした話。](https://ver-1-0.net/2019/01/10/blog-renewal-by-gatsby)
 
-- WordPressやめます Gatsbyに移行しました
-https://tech-blog.s-yoshiki.com/entry/192
+- [WordPressやめます Gatsbyに移行しました](https://tech-blog.s-yoshiki.com/entry/192)
 
-- 7年間使ってきたWordPressを捨ててContentful+Gatsby+Netlifyにしたら爆速になったし経緯とか教訓とか語る
-https://qiita.com/kfurumiya/items/d0f4a327318b88bd6199
+- [7年間使ってきたWordPressを捨ててContentful+Gatsby+Netlifyにしたら爆速になったし経緯とか教訓とか語る](https://qiita.com/kfurumiya/items/d0f4a327318b88bd6199)
 
-- ブログをWordpressからGatsbyに移行したので、その手順とハマったポイントを解説する
-https://qiita.com/akashixi/items/9653d0a6522117618e0f
+- [ブログをWordpressからGatsbyに移行したので、その手順とハマったポイントを解説する](https://qiita.com/akashixi/items/9653d0a6522117618e0f)
