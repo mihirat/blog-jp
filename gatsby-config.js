@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: siteConfig.url, // for gatsby-plugin-feed
     title: siteConfig.title,
     tagline: siteConfig.tagline,
-    description: `A blog template for web developers that's ready to go out of the box. Feel free to modify it to your liking.`,
+    description: `スタートアップで働くエンジニアのブログ since 2015`,
     author: siteConfig.author.name,
     contacts: {
       // linkedin: siteConfig.author.contacts.linkedin,
