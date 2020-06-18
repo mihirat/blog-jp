@@ -21,7 +21,7 @@ const Sidebar = () => {
                                 # linkedin
                                 github
                                 medium
-                                note
+                                # note
                                 twitter
                             }
                             labels {

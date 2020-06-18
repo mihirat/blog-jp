@@ -26,9 +26,7 @@ const Layout = ({ children }) => {
             contacts {
               # linkedin
               github
-              # stackoverflow
-              # freecodecamp
-              note
+              # note
               medium
               twitter
             }
