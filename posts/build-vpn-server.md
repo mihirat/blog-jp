@@ -1,5 +1,5 @@
 ---
-title: 自分専用のVPSサーバーを構築
+title: 自分専用のVPNサーバーを構築
 tags: ["lifestyle"]
 published: true
 date: '2020-06-20'
