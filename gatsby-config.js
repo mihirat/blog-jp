@@ -23,6 +23,7 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-feed`,
+    `gatsby-plugin-twitter`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,

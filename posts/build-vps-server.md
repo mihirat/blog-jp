@@ -7,13 +7,14 @@ date: '2020-06-20'
 
 ## 背景
 
-1. 日本で契約してたサービスが使えなくなった
+#### 1. 日本で契約してたサービスが使えなくなった
+
 当初はフリーのOpenVPNとVPN gateを利用していたのですが、それらも対策されて使えなくなりました。
 
 調べるかぎり、大手のVPNサービスは有料無料かかわらず使えなくなったようです。
 ただ、それらは多数が単一IPに相乗りしている場合のみ対応されているようです。
 
-2. 無料のVPNサービスは制約が多い
+#### 2. 無料のVPNサービスは制約が多い
 
 - 日本にサーバーがない
 - セキュリティ観点が怪しい
@@ -40,7 +41,8 @@ portへの通信が制御されていたりするので、外しておきまし�
 [自分だけのVPNサーバを作る！Ubuntu 18.04 に SoftEther VPN Serverをインストール](https://qiita.com/dogwood008/items/3d11ea67661a5b6bc59d)
 
 - インストールするアプリはrtmかつlatestを選ぶ
-記事内だと betaかつ少し古いものを使っているので、最新版を確認しましょう
+
+記事内だと betaかつ少し古いものを使っているので、最新版を確認しましょう。
 執筆時点だと
 
 >SoftEther VPN Server (Ver 4.29, Build 9678, rtm)
@@ -49,6 +51,7 @@ portへの通信が制御されていたりするので、外しておきまし�
 で確認できます
 
 - セキュリティ対応
+
 記事内で`ufw`コマンドで開放ポートの操作をするタイミングがありますが、
 SSHが全開放されているのはよろしくないので、何かしらか対応しましょう。
 
@@ -56,6 +59,7 @@ SSHが全開放されているのはよろしくないので、何かしらか�
 ちゃんとやるならpemを発行する方がより安心ですね。
 
 - OpenVPN対応 (必要なら)
+
 記事内の手順だとOpenVPNが利用できないので、利用する場合は
 `ufw allow 1194/udp`
 などで開放しておきます。
@@ -85,14 +89,14 @@ OpenVPN ClientはAndroidやiOSのアプリとして配布されているので�
 インストール後、上記ファイルをimportすればokです。
 
 アプリとして配布されているということは、Android TVなどにも導入できてしまいます。
-自分のホームプロジェクタがAndroid TV対応だったので、導入しました。
+自分のホームプロジェクタがAndroid TV対応だったので導入しました。
 
-<iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=000000&IS2=1&bg1=FFFFFF&fc1=000000&lc1=0000FF&t=techeten02-22&language=ja_JP&o=9&p=8&l=as4&m=amazon&f=ifr&ref=as_ss_li_til&asins=B07QBXMY2Z&linkId=26a8870426deff2012ba55fc5b53c3eb"></iframe>
+<a href="https://www.amazon.co.jp/Anker-Capsule-%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%BF%E3%83%BC%EF%BC%89%E3%80%90200-ANSI%E3%83%AB%E3%83%BC%E3%83%A1%E3%83%B3-%E3%82%AA%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%82%AB%E3%82%B9%E6%A9%9F%E8%83%BD/dp/B07QBXMY2Z/ref=as_li_ss_il?ie=UTF8&linkCode=li2&tag=techeten02-22&linkId=06eb80104488df090281e985727effae&language=ja_JP" target="_blank"><img border="0" src="//ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B07QBXMY2Z&Format=_SL160_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=techeten02-22&language=ja_JP" ></a><img src="https://ir-jp.amazon-adsystem.com/e/ir?t=techeten02-22&language=ja_JP&l=li2&o=9&a=B07QBXMY2Z" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 
 
 Androidベースの、なんとかTV Stickにも導入できますね。
 Google Playのアプリを頑張れば導入できるので、
-頑張ってアプリを導入し、あとちょっと頑張って.ovpnファイルを送信すれば、ナイスなVPNライフが始まります。
+あとちょっと頑張って.ovpnファイルを送信すれば、ナイスなVPNライフが始まります。
 
 ## まとめ
 
