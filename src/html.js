@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+const ad_id = process.env.GATSBY_GOOGLE_ADSENSE_ID
+
 export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
@@ -11,15 +13,7 @@ export default function HTML(props) {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-            {`
-                (adsbygoogle = window.adsbygoogle || []).push({
-                google_ad_client: ${process.env.GATSBY_GOOGLE_ADSENSE_ID},
-                enable_page_level_ads: true
-                });
-            `}
-        </script>
+        <script async data-ad-client={ad_id} src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         {props.headComponents}
       </head>
       <body {...props.bodyAttributes}>
