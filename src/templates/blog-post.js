@@ -8,6 +8,7 @@ import "./blog-post.css"
 import Sidebar from "../components/sidebar/Sidebar"
 import TechTag from "../components/tags/TechTag"
 import CustomShareBlock from "../components/CustomShareBlock"
+import Ad from "../components/ad"
 
 const BlogPost = (props) => {
   const post = props.data.markdownRemark
@@ -49,6 +50,8 @@ const BlogPost = (props) => {
             <small><i>Published on </i> {post.frontmatter.date}</small>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
             <CustomShareBlock title={post.frontmatter.title} siteName={siteName} url={url} />
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossOrigin="anonymous"></script>
+            <Ad />
           </div>
         </div>
       </div>

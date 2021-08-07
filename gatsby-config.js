@@ -26,12 +26,6 @@ module.exports = {
     `gatsby-plugin-twitter`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-google-adsense`,
-      options: {
-        publisherId: process.env.GOOGLE_ADSENSE_ID
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/posts`,
