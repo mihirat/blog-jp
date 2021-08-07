@@ -52,11 +52,6 @@ const BlogPost = (props) => {
             <CustomShareBlock title={post.frontmatter.title} siteName={siteName} url={url} />
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossOrigin="anonymous"></script>
             <Ad />
-            <script>
-              {`
-                (adsbygoogle = window.adsbygoogle || []).push({});
-              `}
-            </script>
           </div>
         </div>
       </div>
