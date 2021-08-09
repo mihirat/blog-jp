@@ -20,11 +20,15 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
     `
   )
+
+  const siteUrl = site.siteMetadata.siteUrl
+  const defaultImageUrl = `${siteUrl}${mihirat}`
 
   const metaDescription = description || site.siteMetadata.description
 
@@ -54,7 +58,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: mihirat,
+          content: defaultImageUrl,
         },
         {
           name: `twitter:card`,
@@ -69,6 +73,10 @@ function SEO({ description, lang, meta, title }) {
           content: title,
         },
         {
+          name: `twitter:image`,
+          content: defaultImageUrl,
+        },
+        {
           name: `twitter:description`,
           content: metaDescription,
         },
@@ -78,7 +86,7 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
-  lang: `en`,
+  lang: `ja`,
   meta: [],
   description: ``,
 }
