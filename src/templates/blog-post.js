@@ -16,7 +16,7 @@ const BlogPost = (props) => {
   const siteName = props.data.site.siteMetadata.title 
   const siteUrl = props.data.site.siteMetadata.url
   const url = `${siteUrl}${props.pageContext.slug}`;
-  const tags = post.frontmatter.tags
+  const { title, description, date, tags } = post.frontmatter
 
   const getTechTags = (tags) => {
     const techTags = []
@@ -30,9 +30,10 @@ const BlogPost = (props) => {
     return techTags
   }
 
+
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
+      <SEO title={title} description={description} />
       <Iframely />
       <div className="post-page-main">
         <div className="sidebar px-4 py-2">
@@ -40,16 +41,16 @@ const BlogPost = (props) => {
         </div>
 
         <div className="post-main">
-          <SEO title={post.frontmatter.title} />
+          <SEO title={title} description={description} />
           <div className="mt-3">
-            <h2 className="heading">{post.frontmatter.title}</h2>
+            <h2 className="heading">{title}</h2>
             <div className="d-block">
               {getTechTags(tags)}
             </div>
             <br />
-            <small><i>Published on </i> {post.frontmatter.date}</small>
+            <small><i>Published on </i> {date}</small>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
-            <CustomShareBlock title={post.frontmatter.title} siteName={siteName} url={url} />
+            <CustomShareBlock title={title} siteName={siteName} url={url} />
             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossOrigin="anonymous"></script>
             <Ad />
           </div>
@@ -78,6 +79,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        description
         date(formatString: "MMMM DD, YYYY")
         tags
       }

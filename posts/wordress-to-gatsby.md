@@ -1,5 +1,6 @@
 ---
 title: WordPressからGatsby+Netlifyへ移行しました話
+description: GatsbyとNetlifyで無料ホスティングに切り替えました
 tags: ["gatsby"]
 published: true
 date: '2020-06-14'

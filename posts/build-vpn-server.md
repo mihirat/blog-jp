@@ -1,5 +1,6 @@
 ---
 title: 自分専用のVPNサーバーを構築
+description: さくらVPSでレンタルしたサーバーでVPNを構築しました
 tags: ["lifestyle"]
 published: true
 date: '2020-06-20'
