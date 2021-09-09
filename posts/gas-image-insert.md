@@ -12,16 +12,17 @@ date: '2021-08-12'
 ## やりたいこと
 
 Google Sheetには画像を挿入する機能があります。
-公式ドキュメントはこちら。
-https://support.google.com/docs/answer/9224754?hl=ja&co=GENIE.Platform%3DDesktop
+公式ドキュメントは[こちら](https://support.google.com/docs/answer/9224754?hl=ja&co=GENIE.Platform%3DDesktop)。
+
 
 普通にやろうとすると１つ１つのセルをちまちま選択して『挿入 > 画像を挿入 > ...』を繰り返す必要があります。画像が多い場合は辛くて無理です。
 
 一括挿入する方法としては、IMAGE関数を使ってまとめて処理することが選択肢になります。共有リンクを取得し、一部リンクを書き換えることで挿入可能になるようです。
-https://roboma.io/blog/marketing/image-function-of-google-spreadsheet/
 
-参考までですが、共有リンクをまとめて取得する方法は下記の通り。
-https://www.yukibnb.com/entry/2019/12/01/161500
+[参考記事](https://roboma.io/blog/marketing/image-function-of-google-spreadsheet/)
+
+参考までですが、共有リンクをまとめて取得する方法は[こちらをご参考ください](https://www.yukibnb.com/entry/2019/12/01/161500)。
+
 
 が、画像の枚数が多いと表示が遅いケースがありました。
 そこで今回は、画像をまとめて挿入するスクリプトを書いたので共有します。
@@ -49,6 +50,7 @@ folderA - 画像を挿入したいスプレッドシート
 次の通り。これを[こちらのブログ](https://www.yukibnb.com/entry/2019/12/01/161500)を参考にしてスクリプトエディタから起動すれば自動挿入されます。
 
 ```js
+
 function insertImages() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
 　// 選択中のシートに挿入される。必要ならシートIDを使って別途選択する
@@ -99,8 +101,11 @@ function getSortedFiles(folderFiles) {
 }
 
 ```
+
 実行時に権限要求されますがよしなに許可。
+
 実行するとファイル名が表示され、順次フォルダ内の画像がシートに挿入されていきます。
+
 [![](../src/images/gas-log.png)](../src/images/gas-log.png)
 
 挿入には少しラグがありますが、リロードするとちゃんと表示されます。
@@ -113,5 +118,5 @@ function getSortedFiles(folderFiles) {
 
 ### その他参考URL
 
-https://for-dummies.net/gas-noobs/how-to-insert-images-into-spreadsheets-by-gas/
-https://stackoverflow.com/questions/66782960/inserting-images-into-a-sheet-as-blobsource-using-google-apps-script
+- [how-to-insert-images-into-spreadsheets-by-gas](https://for-dummies.net/gas-noobs/how-to-insert-images-into-spreadsheets-by-gas/)
+- [inserting-images-into-a-sheet-as-blobsource-using-google-apps-script](https://stackoverflow.com/questions/66782960/inserting-images-into-a-sheet-as-blobsource-using-google-apps-script)
