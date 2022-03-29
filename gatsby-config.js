@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: siteConfig.url, // for gatsby-plugin-feed
     title: siteConfig.title,
     tagline: siteConfig.tagline,
-    description: `スタートアップで働くエンジニアのブログです`,
+    description: `エンジニアのブログです`,
     author: siteConfig.author.name,
     contacts: {
       // linkedin: siteConfig.author.contacts.linkedin,
@@ -52,7 +52,9 @@ module.exports = {
               showLineNumbers: false,
               noInlineHighlight: false,
             }
-          }, `gatsby-remark-responsive-iframe`,
+          },
+          `gatsby-remark-responsive-iframe`,
+          `gatsby-remark-embedder`,
           {
             resolve: `gatsby-remark-images`,
             options: {
