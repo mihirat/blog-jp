@@ -52,9 +52,7 @@ module.exports = {
               showLineNumbers: false,
               noInlineHighlight: false,
             }
-          },
-          `gatsby-remark-responsive-iframe`,
-          `gatsby-remark-embedder`,
+          }, `gatsby-remark-responsive-iframe`,
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -62,6 +60,17 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 200,
+            },
+          },
+          {
+            resolve: `gatsby-remark-embedder`,
+            options: {
+              customTransformers: [
+                // Your custom transformers
+              ],
+              services: {
+                // The service-specific options by the name of the service
+              },
             },
           },
         ],
