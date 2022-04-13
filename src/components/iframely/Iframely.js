@@ -1,18 +1,18 @@
-import React from 'react';
-import Helmet from 'react-helmet';
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 
-export default class Iframely extends React.Component {
-  componentDidMount() {
-    if (window.iframely) {
+const Iframely = () => {
+  useEffect(() => {
+    if (window && window.iframely) {
       window.iframely.load();
     }
-  }
+  }, []);
 
-  render() {
-    return (
-      <Helmet>
-        <script type="text/javascript" src="https://cdn.iframe.ly/embed.js" charset="utf-8" />
-      </Helmet>
-    );
-  }
-}
+  return (
+    <Helmet>
+      <script async src="https://cdn.iframe.ly/embed.js" charset="utf-8"></script>
+    </Helmet>
+  );
+};
+
+export default Iframely;
