@@ -9,6 +9,9 @@ date: '2022-07-16'
 入社して３ヶ月になりました！
 
 [![Logo](../src/images/shopify-logo.gif)](../src/images/shopify-logo.gif)
+[![](../src/images/shopify-logo.gif)](../src/images/shopify-logo.gif)
+
+[![](../src/images/gas-log.png)](../src/images/gas-log.png)
 
 ## Whoami
 
