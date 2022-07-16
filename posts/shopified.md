@@ -8,18 +8,9 @@ date: '2022-07-16'
 
 入社して３ヶ月になりました！
 
-[![Logo](../src/images/shopify-logo.gif)](../src/images/shopify-logo.gif)
-[![](../src/images/shopify-logo.gif)](../src/images/shopify-logo.gif)
 ![Logo](../src/images/shopify-logo.gif)
-![](../src/images/shopify-logo.gif)
 
-<img src="../src/images/shopify-logo.gif" />
-
-<video controls width="100%" autoplay loop muted="true" src="../src/images/shopify-logo.mp4" type="video/mp4" >
- Sorry, your browser doesn't support embedded videos.
-</video>
-
-[![](../src/images/gas-log.png)](../src/images/gas-log.png)
+(SNSシェア用に使ってね！と会社からもらったやつです)
 
 ## Whoami
 
