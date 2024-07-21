@@ -12,6 +12,7 @@ import {Favicon} from "../types/config";
 import {defaultFavicons} from "../constants/icon";
 import {LIGHT_MODE, DARK_MODE, AUTO_MODE, DEFAULT_THEME} from "../constants/constants";
 import {url} from "../utils/url-utils";
+import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 
 interface Props {
 	title: string;
@@ -119,6 +120,8 @@ const siteLang = siteConfig.lang.replace('_', '-')
 					}
 			}
 		</script>
+
+		<GoogleAnalytics />
 
 		<slot name="head"></slot>
 

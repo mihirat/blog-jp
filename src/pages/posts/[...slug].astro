@@ -13,7 +13,7 @@ import Markdown from "@components/misc/Markdown.astro";
 import path from "path";
 import {profileConfig} from "../../config";
 import {formatDateToYYYYMMDD} from "../../utils/date-utils";
-import GoogleAd from "../../components/GoogleAd.astro";
+import GoogleAd from "@components/GoogleAd.astro";
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection('posts', ({ data }) => {
