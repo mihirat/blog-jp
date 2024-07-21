@@ -1,18 +1,10 @@
----
-
-const trackingID = process.env.GOOGLE_ANALYTICS_ID
-
----
-
-<!-- Google tag (gtag.js) -->
-<script type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${trackingID}`}
-></script>
+<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-SE3HD2RHLR"></script>
 <script type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag() {
-    dataLayer.push(arguments);
+        dataLayer.push(arguments);
     }
     gtag("js", new Date());
 
-    gtag("config", `${trackingID}`);
+    gtag("config", "G-SE3HD2RHLR");
 </script>
