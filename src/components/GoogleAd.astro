@@ -3,6 +3,12 @@
 const client = process.env.GATSBY_GOOGLE_ADSENSE_ID
 const slot = process.env.GATSBY_GOOGLE_ADSENSE_SLOT_ID
 
+const style = {
+  display: 'block',
+  textAlign: 'center',
+  width: '100%',
+}
+
 ---
 
 <script
@@ -12,9 +18,9 @@ const slot = process.env.GATSBY_GOOGLE_ADSENSE_SLOT_ID
 </script>
 <ins
     class="adsbygoogle"
-    style="display:block"
+    style={style}
     data-ad-layout="in-article"
-    data-ad-format="autorelaxed"
+    data-ad-format="fluid"
     data-ad-client={client}
     data-ad-slot={slot} />
 </ins>
