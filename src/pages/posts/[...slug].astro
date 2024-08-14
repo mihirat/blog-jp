@@ -108,6 +108,8 @@ const jsonLd = {
         </div>
     </div>
 
+    <GoogleAd />
+
     <div class="flex flex-col md:flex-row justify-between mb-4 gap-4 overflow-hidden w-full">
         <a href={getPostUrlBySlug(entry.data.nextSlug)} class="w-full font-bold overflow-hidden active:scale-95">
             {entry.data.nextSlug && <div class="btn-card rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center justify-start gap-4" >
@@ -117,7 +119,6 @@ const jsonLd = {
                 </div>
             </div>}
         </a>
-        <GoogleAd />
         <a href={getPostUrlBySlug(entry.data.prevSlug)} class="w-full font-bold overflow-hidden active:scale-95">
             {entry.data.prevSlug && <div class="btn-card rounded-2xl w-full h-[3.75rem] max-w-full px-4 flex items-center justify-end gap-4">
                 <div class="overflow-hidden transition overflow-ellipsis whitespace-nowrap max-w-[calc(100%_-_3rem)] text-black/75 dark:text-white/75">
