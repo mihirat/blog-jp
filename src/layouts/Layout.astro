@@ -15,12 +15,13 @@ import {url} from "../utils/url-utils";
 import GoogleAnalytics from "@components/GoogleAnalytics.astro";
 
 interface Props {
+	slug?: string;
 	title: string;
 	banner: string;
 	description?: string;
 }
 
-let { title, banner, description } = Astro.props;
+let { slug, title, banner, description } = Astro.props;
 
 const isHomePage = pathsEqual(Astro.url.pathname, '/');
 
@@ -87,6 +88,7 @@ const siteLang = siteConfig.lang.replace('_', '-')
 		<meta property="og:url" content={Astro.url}>
 		<meta property="og:title" content={pageTitle}>
 		<meta property="og:description" content={description || pageTitle}>
+		{slug && (<meta property="og:image" content={new URL(`/og/${slug}.png`, Astro.url.origin).toString()}>)}
 
 		<meta name="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content={Astro.url}>

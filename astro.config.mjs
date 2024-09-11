@@ -18,6 +18,7 @@ import swup from '@swup/astro';
 import sitemap from '@astrojs/sitemap';
 import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import partytown from "@astrojs/partytown";
+import react from "@astrojs/react";
 const oklchToHex = str => {
   const DEFAULT_HUE = 250;
   const regex = /-?\d+(\.\d+)?/g;
@@ -54,10 +55,9 @@ export default defineConfig({
     Image: false
   }), svelte(), sitemap(), partytown({
     config: {
-      forward: ['dataLayer.push'],
-    },
-  }),
-  ],
+      forward: ['dataLayer.push']
+    }
+  }), react()],
   markdown: {
     remarkPlugins: [remarkMath, remarkReadingTime, remarkGithubAdmonitionsToDirectives, remarkDirective, parseDirectiveNode],
     rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeComponents, {
