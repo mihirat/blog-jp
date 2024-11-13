@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "strictNullChecks": true,
     "allowJs": true,
+    "esModuleInterop": true,
     "plugins": [
       {
         "name": "@astrojs/ts-plugin"
@@ -30,7 +31,8 @@
       ],
       "@/*": [
         "src/*"
-      ]
+      ],
+      "astro": ["node_modules/astro"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

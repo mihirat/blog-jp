@@ -58,6 +58,9 @@ importers:
       astro-icon:
         specifier: 1.1.0
         version: 1.1.0
+      astro-seo:
+        specifier: ^0.8.4
+        version: 0.8.4(typescript@5.6.2)
       colorjs.io:
         specifier: ^0.5.2
         version: 0.5.2
@@ -192,6 +195,12 @@ packages:
 
   '@antfu/utils@0.7.10':
     resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
+
+  '@astrojs/check@0.5.10':
+    resolution: {integrity: sha512-vliHXM9cu/viGeKiksUM4mXfO816ohWtawTl2ADPgTsd4nUMjFiyAl7xFZhF34yy4hq4qf7jvK1F2PlR3b5I5w==}
+    hasBin: true
+    peerDependencies:
+      typescript: ^5.0.0
 
   '@astrojs/check@0.8.3':
     resolution: {integrity: sha512-ajcSe+ezX5jCc3dreQlWzbknzXgSGnDETNe3C1mawUOtGpO4t5z2YGaD0y+wzB84lmgPWaWZa0fKSPwLq/wUHw==}
@@ -1821,6 +1830,9 @@ packages:
 
   astro-icon@1.1.0:
     resolution: {integrity: sha512-Nksc09p7UuHeMcPNS9w1pKqRw3+wEmmh0A3FJW+FNXvqaeWI4RLvD1MCWErpY3Z5Cvad317rvLdik/Hg8GEk8Q==}
+
+  astro-seo@0.8.4:
+    resolution: {integrity: sha512-Ou1vzQSXAxa0K8rtNtXNvSpYqOGEgMhh0immMxJeXmbVZac3UKCNWAoXWyOQDFYsZvBugCRSg0N1phBqPMVgCw==}
 
   astro@4.15.4:
     resolution: {integrity: sha512-wqy+m3qygt9DmCSqMsckxyK4ccCUFtti2d/WlLkEpAlqHgyDIg20zRTLHO2v/H4YeSlJ8sAcN0RW2FhOeYbINg==}
@@ -4949,6 +4961,18 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
+  '@astrojs/check@0.5.10(typescript@5.6.2)':
+    dependencies:
+      '@astrojs/language-server': 2.14.2(typescript@5.6.2)
+      chokidar: 3.6.0
+      fast-glob: 3.3.2
+      kleur: 4.1.5
+      typescript: 5.6.2
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - prettier
+      - prettier-plugin-astro
+
   '@astrojs/check@0.8.3(typescript@5.6.2)':
     dependencies:
       '@astrojs/language-server': 2.14.2(typescript@5.6.2)
@@ -6853,6 +6877,14 @@ snapshots:
     transitivePeerDependencies:
       - debug
       - supports-color
+
+  astro-seo@0.8.4(typescript@5.6.2):
+    dependencies:
+      '@astrojs/check': 0.5.10(typescript@5.6.2)
+    transitivePeerDependencies:
+      - prettier
+      - prettier-plugin-astro
+      - typescript
 
   astro@4.15.4(@types/node@22.5.4)(lightningcss@1.25.1)(rollup@2.79.1)(sass@1.78.0)(stylus@0.63.0)(terser@5.31.3)(typescript@5.6.2):
     dependencies:

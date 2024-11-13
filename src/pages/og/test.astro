@@ -1,5 +1,6 @@
+---
 import type { APIContext } from "astro";
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { getOgImage } from "@components/OgImage";
 
 export async function getStaticPaths() {
@@ -7,13 +8,14 @@ export async function getStaticPaths() {
         return import.meta.env.PROD ? data.draft !== true : true;
     });
     return blogEntries.map(entry => ({
-        params: { slug: entry.slug },
+        params: { slug: entry.slug }, props: { entry },
     }));
 }
 
 export async function get({ params }: APIContext) {
-  const post = await getEntryBySlug('posts', params.slug);
-  const body = await getOgImage(post?.data.title ?? "No title");
-
+//   console.log(params);
+//   const post = await getEntry('posts', params.slug);
+//   const body = await getOgImage(post?.data.title ?? "No title");
+  const body = await getOgImage("てすと");
   return { body, encoding: "binary" };
 }
