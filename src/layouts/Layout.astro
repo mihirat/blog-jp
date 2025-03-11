@@ -71,6 +71,9 @@ const favicons: Favicon[] = siteConfig.favicon.length > 0 ? siteConfig.favicon :
 
 const siteLang = siteConfig.lang.replace('_', '-')
 
+
+import { generateOgImageUrl } from '../utils/ogp-image';
+const ogImageUrl = generateOgImageUrl(title);
 ---
 
 <!DOCTYPE html>
@@ -86,6 +89,7 @@ const siteLang = siteConfig.lang.replace('_', '-')
 		<meta property="og:site_name" content={siteConfig.title}>
 		<meta property="og:url" content={Astro.url}>
 		<meta property="og:title" content={pageTitle}>
+		<meta property="og:image" content={ogImageUrl} />
 		<meta property="og:description" content={description || pageTitle}>
 
 		<meta name="twitter:card" content="summary_large_image">
