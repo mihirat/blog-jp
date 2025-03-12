@@ -14,6 +14,7 @@ import path from "path";
 import {profileConfig} from "../../config";
 import {formatDateToYYYYMMDD} from "../../utils/date-utils";
 import GoogleAd from "@components/GoogleAd.astro";
+import "src/assets/styles/remark-link-card.css";
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection('posts', ({ data }) => {
