@@ -39,10 +39,13 @@ Astroはざっとみた感じ、Jinjaテンプレートのような、HTMLから
 
 移行で参考にさせていただいたのは下記です。
 
-[ブログをAstro に移行しました](https://blog.riywo.com/2023/01/migrated-blog-to-astro/)
-[Gatsby.jsからAstro.jsに移行した](https://ryota2357.com/blog/2023/migrate-to-astro-from-gatsby/)
-[技術ブログをGatsbyからAstroに乗り換える](https://www.alpha.co.jp/blog/202401_01/)
-[ブログを​Gatsbyから​Astroに​変更した](https://www.ryokatsu.dev/blog/2022/0824/)
+https://blog.riywo.com/2023/01/migrated-blog-to-astro/
+
+https://ryota2357.com/blog/2023/migrate-to-astro-from-gatsby/
+
+https://www.alpha.co.jp/blog/202401_01/
+
+https://www.ryokatsu.dev/blog/2022/0824/
 
 
 # やったこと

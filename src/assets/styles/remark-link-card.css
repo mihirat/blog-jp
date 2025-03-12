@@ -1,0 +1,100 @@
+.rlc-container {
+    --padding-x: 1rem;
+    --padding-y: 0.7rem;
+    --border-radius: calc(0.5rem - 1px);
+    border: 1px solid var(--tw-prose-hr);
+    border-radius: calc(var(--border-radius) + 1px);
+    text-decoration: none;
+  
+    transition: background-color 150ms;
+  
+    &:hover {
+      background-color: #f5f5f5;
+      @media (prefers-color-scheme: dark) {
+        background-color: #262626;
+      }
+    }
+  
+    width: 100%;
+    margin-bottom: 1.25em;
+  
+    display: grid;
+    grid-template-columns: 1fr 116px;
+    gap: 1rem;
+    @media (min-width: 60ch) {
+      grid-template-columns: 1fr 220px;
+    }
+    .rlc-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-weight: normal;
+  
+      grid-column: 1;
+      padding: var(--padding-y) 0 var(--padding-y) var(--padding-x);
+      max-width: 100%;
+      min-width: 100%;
+      border-radius: var(--border-radius) 0 0 var(--border-radius);
+      .rlc-title {
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1.3;
+        color: var(--tw-prose-headings);
+  
+        overflow: hidden;
+        display: -webkit-box;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+      .rlc-description {
+        font-size: 0.8rem;
+        color: #737373;
+        @media (prefers-color-scheme: dark) {
+          color: #a3a3a3;
+        }
+  
+        margin-bottom: 0.5em;
+  
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        -webkit-line-clamp: 1;
+      }
+      .rlc-url-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .rlc-favicon {
+          margin-top: 0.15rem;
+          margin-bottom: 0;
+        }
+        .rlc-url {
+          font-size: 0.8rem;
+          color: #525252;
+          @media (prefers-color-scheme: dark) {
+            color: #d4d4d4;
+          }
+  
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          -webkit-line-clamp: 1;
+        }
+      }
+    }
+    .rlc-image-container {
+      grid-column: 2;
+      aspect-ratio: 1 / 1;
+      @media (min-width: 60ch) {
+        aspect-ratio: 1.91 / 1;
+      }
+      .rlc-image {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+      }
+    }
+  }

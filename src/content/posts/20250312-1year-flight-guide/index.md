@@ -2,7 +2,7 @@
 title: １歳児ワンオペ飛行機の手順書
 description: １歳の息子の人生初の飛行機のワンオペ手順をまとめました
 tags: ["life"]
-published: 2024-11-15
+published: 2025-03-12
 category: Daily
 draft: false
 ---
@@ -23,11 +23,25 @@ draft: false
 
 # 準備編
 
+## 心構えというか雰囲気
+
+意外とみんなやってる父子帰省！
+
+https://note.com/ma_taku/n/n45c6ae0d27d0
+
+https://umichika211.com/dadbaby-homecoming/
+
+https://miimumlog.com/fushikisei/
+
+
+
 ## 飛行機 or 新幹線？
 
 結論から言えば、ワンオペの場合は飛行機推し。ただし自宅から空港まで＆空港から目的地の距離が遠くなければですが。
 
 移動時間だけを比べた場合、単純な総移動時間ではおそらく新幹線有利と思われます。
+
+https://cocreco.kodansha.co.jp/cocreco/general/life/CSE/ReHPW
 
 しかし福岡-東京間の場合、福岡空港が市内に近く、また新幹線だと東京まで5時間ほどかかってしまう点から、総移動時間は飛行機の方が短くなります。
 
@@ -40,6 +54,10 @@ draft: false
 
 さらに多くの航空会社では赤ちゃん連れに優遇措置があります。ベビーカーの無料預かり、機内での調乳など。キッズスペースも大変ありがたかったです。
 
+参考
+
+https://baby-first.jp/290.html
+
 ## 航空会社の選定
 
 子供が小さいうちは病気などで延期になる可能性が高いため、予約変更可のチケットが良いと思います。病気の場合の払い戻し対応はJALやANAではできるようですが、医師の診断書自体が安くないのでそこがネックになりました。
@@ -50,6 +68,10 @@ draft: false
 
 以上の全てを満たしており、かつ財布に優しいスカイマークがオススメです！
 
+https://emi-blog.online/kodure-skymark/
+
+https://www.skymark.co.jp/ja/support/assist.html
+
 ## 航空券の手配
 
 座席は一般的に後ろがオススメのようです。早く空港に移動したいビジネスマンなどは前方の席に集中する、またオムツ替え可能なトイレや授乳エリアなどが近いなどが理由でした。
@@ -59,6 +81,8 @@ draft: false
 隣の席が空いている場所を指定できたらかなり気持ちが楽になります。スカイマークだと座席指定も無料なのでありがたかったです。
 
 子供用に座席を確保するのもありかと思いますが、懐事情と相談ですね。そもそも一人で大人しく座れる一歳児は多くなさそうなイメージですし、離着陸時はどのみち抱っこなので、国内線ではあまりメリットがなさそうな気もします。
+
+https://baby-first.jp/290.html
 
 ## 荷造り
 
@@ -201,4 +225,44 @@ ANAやJALでは『お手伝いが必要なお客様カウンター』なるも�
 子供がギャン泣き秒読みになったタイミングで、紙コップで簡単なオモチャを自作してプレゼントいただいたときは、本当に神々しく思えたものです。笑
 
 初めてのフライト、ガンバッてください！！！
+
+# 参考にさせてもらった記事
+
+https://itsumama55.com/09_no-no-no-period/1145/
+
+https://haisaikiri.com/flightwithbaby/8025/
+
+https://www.tabinotebook.com/infant-long-haul-flight/
+
+https://kokoharekochi.com/article/feature/recommend/n62828/
+
+https://venussecret.info/blog/planewith1baby/
+
+https://www.tokyu-dept.co.jp/mamacowith/detail.html?id=1214
+
+https://note.com/chiyo_ko/n/n6f564aef33ab
+
+https://note.com/kamu_journey/n/n9459948ebde8
+
+https://kototabisuru.com/miminuki
+
+https://www.jidiary.com/flight/flightwithbaby3/
+
+https://eri-blogg.com/post-296
+
+https://anasalesa.com/baby-service/
+
+https://nonki-mom.com/flightwithbaby/
+
+https://note.com/tmytmy52/n/nf7952eb63787
+
+https://ksdthacker22.com/one-operation-on-the-plane/
+
+https://kiunonichijou.com/airplain/
+
+https://marisol.hpplus.jp/article/100319
+
+https://www.jal.co.jp/jp/ja/dom/special/babysupport/#comic02
+
+https://woman.excite.co.jp/article/child/rid_BabyCalendar_44918/
 
