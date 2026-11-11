@@ -1,25 +1,25 @@
 ---
-import {getCategoryList, getSortedPosts} from "@utils/content-utils";
-import MainGridLayout from "@layouts/MainGridLayout.astro";
-import ArchivePanel from "@components/ArchivePanel.astro";
-import {i18n} from "@i18n/translation";
-import I18nKey from "@i18n/i18nKey";
+import type { CollectionEntry } from 'astro:content'
+import PostList from '../../../components/PostList.astro'
+import Layout from '../../../layouts/Layout.astro'
+import { getSortedPosts, getTaxonomy } from '../../../utils/content-utils'
 
 export async function getStaticPaths() {
-    const categories = await getCategoryList();
-    return categories.map(category => {
-        return {
-            params: {
-                category: category.name
-            }
-        }
-    });
+  const posts = await getSortedPosts()
+  return getTaxonomy(posts, 'category')
+    .filter(({ name }) => name !== 'uncategorized')
+    .map(({ name }) => ({
+      params: { category: name },
+      props: { posts: posts.filter(post => post.data.category === name) },
+    }))
 }
-
-const { category } = Astro.params;
-
+interface Props {
+  posts: CollectionEntry<'posts'>[]
+}
+const { posts } = Astro.props
+const { category } = Astro.params
 ---
-
-<MainGridLayout title={i18n(I18nKey.archive)} description={i18n(I18nKey.archive)}>
-    <ArchivePanel categories={[category]}></ArchivePanel>
-</MainGridLayout>
+<Layout title={`カテゴリ: ${category}`} heading={`カテゴリ: ${category}`}>
+  <p class="muted">{posts.length}記事 · <a href="/archive/">すべての記事</a></p>
+  <PostList posts={posts} />
+</Layout>

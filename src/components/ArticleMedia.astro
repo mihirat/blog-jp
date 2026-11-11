@@ -1,0 +1,20 @@
+---
+interface Props {
+  body: string
+}
+const { body } = Astro.props
+const hasIframely = body.includes('data-iframely-url')
+const hasSourceImageLinks = body.includes('/src/assets/images/')
+---
+<!-- Existing cards contain empty anchors; the provider's loader creates their frames. -->
+{hasIframely && <script is:inline async src="https://cdn.iframe.ly/embed.js"></script>}
+{hasSourceImageLinks && <script is:inline>
+  // Astro publishes Markdown images under generated URLs. Legacy links around
+  // those images still point into /src/, which is not part of the static site.
+  for (const link of document.querySelectorAll('.prose a[href]')) {
+    const image = link.querySelector('img');
+    if (image && link.origin === location.origin && link.pathname.startsWith('/src/assets/images/')) {
+      link.href = image.currentSrc || image.src;
+    }
+  }
+</script>}

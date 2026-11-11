@@ -1,34 +1,23 @@
 ---
-import {getSortedPosts} from "@utils/content-utils";
-import MainGridLayout from "@layouts/MainGridLayout.astro";
-import ArchivePanel from "@components/ArchivePanel.astro";
-import {i18n} from "@i18n/translation";
-import I18nKey from "@i18n/i18nKey";
-
+import type { CollectionEntry } from 'astro:content'
+import PostList from '../../../components/PostList.astro'
+import Layout from '../../../layouts/Layout.astro'
+import { getSortedPosts, getTaxonomy } from '../../../utils/content-utils'
 
 export async function getStaticPaths() {
-    let posts = await getSortedPosts()
-
-    const allTags = posts.reduce((acc, post) => {
-        post.data.tags.forEach(tag => acc.add(tag));
-        return acc;
-    }, new Set());
-
-    const allTagsArray = Array.from(allTags);
-
-    return allTagsArray.map(tag => {
-        return {
-            params: {
-                tag: tag
-            }
-        }
-    });
+  const posts = await getSortedPosts()
+  return getTaxonomy(posts, 'tags').map(({ name }) => ({
+    params: { tag: name },
+    props: { posts: posts.filter(post => post.data.tags?.includes(name)) },
+  }))
 }
-
-const { tag } = Astro.params;
-
+interface Props {
+  posts: CollectionEntry<'posts'>[]
+}
+const { posts } = Astro.props
+const { tag } = Astro.params
 ---
-
-<MainGridLayout title={i18n(I18nKey.archive)} description={i18n(I18nKey.archive)}>
-    <ArchivePanel tags={[tag]}></ArchivePanel>
-</MainGridLayout>
+<Layout title={`タグ: ${tag}`} heading={`タグ: #${tag}`}>
+  <p class="muted">{posts.length}記事 · <a href="/archive/">すべての記事</a></p>
+  <PostList posts={posts} />
+</Layout>

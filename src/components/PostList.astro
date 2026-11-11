@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getPostUrlBySlug } from '../utils/url-utils'
+import PostMeta from './PostMeta.astro'
+interface Props {
+  posts: CollectionEntry<'posts'>[]
+}
+const { posts } = Astro.props
+---
+{posts.length === 0 ? <p>記事はまだありません。</p> : <ul class="post-list">
+  {posts.map(post => <li>
+    <article class="post-summary">
+      <h2><a href={getPostUrlBySlug(post.slug)}>{post.data.title}</a></h2>
+      <PostMeta {...post.data} />
+      {post.data.description && <p>{post.data.description}</p>}
+    </article>
+  </li>)}
+</ul>}

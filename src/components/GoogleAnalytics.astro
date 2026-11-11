@@ -1,10 +1,13 @@
-<script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-SE3HD2RHLR"></script>
-<script type="text/partytown">
+---
+import { siteConfig } from '../config'
+const enabled = import.meta.env.PROD && Boolean(siteConfig.analyticsId)
+---
+{enabled && <>
+  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analyticsId}`}></script>
+  <script is:inline define:vars={{ analyticsId: siteConfig.analyticsId }}>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-SE3HD2RHLR");
-</script>
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', analyticsId);
+  </script>
+</>}
