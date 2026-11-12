@@ -5,7 +5,7 @@ export async function getSortedPosts() {
   return posts.sort(
     (a, b) =>
       b.data.published.getTime() - a.data.published.getTime() ||
-      a.slug.localeCompare(b.slug, 'ja'),
+      a.id.localeCompare(b.id, 'ja'),
   )
 }
 

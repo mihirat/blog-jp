@@ -4,6 +4,8 @@ Astro で静的生成する個人ブログ。表示は `.astro` コンポーネ�
 
 ## 開発
 
+Node.js 24 LTS と npm を使用します。Node.js の最小バージョンは 22.23.4 です。
+
 ```sh
 npm ci
 npm run dev
@@ -21,7 +23,7 @@ npm run preview
 - 記事 URL は `/posts/<slug>/`、一覧は `/`, `/2/`, … です。
 - 記事内の画像・コードブロック・表・埋め込み HTML は Astro の Markdown 処理で描画します。見出しには ID が付与されます。
 - Iframely カードを含む記事では公式ローダーを読み込みます。`src/assets/images/` を指す画像のクリック先は、描画後に Astro の生成画像 URL に補正します。
-- `image` は記事相対パス、`public/` からの絶対パス、外部 URL に対応します。相対画像の解決には Astro 標準のコレクションスキーマを使います。
+- `image` は記事相対パス、`public/` からの絶対パス、外部 URL に対応します。相対画像の解決には Astro 標準のコレクションスキーマを使います。コンテンツコレクションは `src/content.config.ts` で定義しています。
 - `npm run new-post -- <filename>` で記事を作成できます。
 - サイト名・著者・リンク・ページサイズ・解析 ID は `src/config.ts`、本文の組版とレイアウトは `src/styles/global.css` で変更します。
 - 日本語・中国語用のシステムフォントをフォールバックに含めています。Web フォントのダウンロードはありません。

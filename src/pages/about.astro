@@ -1,9 +1,9 @@
 ---
-import { getEntry } from 'astro:content'
+import { getEntry, render } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 const entry = await getEntry('spec', 'about')
 if (!entry) throw new Error('src/content/spec/about.md is missing')
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 ---
 <Layout title="About">
   <div class="prose"><Content /></div>

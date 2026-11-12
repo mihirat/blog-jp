@@ -123,7 +123,7 @@ test('nested Markdown, CJK taxonomies, optional metadata and drafts build correc
       writeFileSync(path.join(posts, `minimal-${index}.md`), `---\ntitle: Minimal ${index}\npublished: 2025-01-01\n${imageField}---\n本文\n\nRSS_MARKER_\b_&#8;_日本語中文😀\n`)
     }
     writeFileSync(path.join(posts, 'draft.md'), '---\ntitle: DRAFT_SHOULD_NOT_APPEAR\npublished: 2026-02-01\ndraft: true\ntags: [draft-only]\ncategory: draft-only\n---\n非公開\n')
-    const result = spawnSync(process.execPath, [path.join(root, 'node_modules/astro/astro.js'), 'build', '--root', fixture], {
+    const result = spawnSync(process.execPath, [realpathSync(path.join(root, 'node_modules/.bin/astro')), 'build', '--root', fixture], {
       cwd: fixture,
       encoding: 'utf8',
       timeout: 90_000,

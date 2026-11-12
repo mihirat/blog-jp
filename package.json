@@ -14,18 +14,22 @@
     "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.6",
-    "@astrojs/sitemap": "^3.1.6",
-    "astro": "^4.16.18",
-    "markdown-it": "^14.1.0",
-    "sanitize-html": "^2.13.0",
-    "sharp": "^0.33.4"
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.11",
+    "markdown-it": "^14.3.3",
+    "sanitize-html": "^2.18.2",
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@biomejs/biome": "1.8.2",
-    "@types/markdown-it": "^14.1.1",
-    "@types/sanitize-html": "^2.11.0",
-    "@astrojs/check": "^0.8.2",
-    "typescript": "^5.5.3"
+    "@types/markdown-it": "^14.2.0",
+    "@types/sanitize-html": "^2.16.2",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.23.4",
+    "npm": ">=9.6.5"
   }
 }

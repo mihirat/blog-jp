@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import type { CollectionEntry } from 'astro:content'
+import { type CollectionEntry, render } from 'astro:content'
 import ArticleMedia from '../../components/ArticleMedia.astro'
 import GoogleAd from '../../components/GoogleAd.astro'
 import PostMeta from '../../components/PostMeta.astro'
@@ -12,7 +12,7 @@ import { getPostUrlBySlug } from '../../utils/url-utils'
 export async function getStaticPaths() {
   const posts = await getSortedPosts()
   return posts.map((entry, index) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry, newer: posts[index - 1], older: posts[index + 1] },
   }))
 }
@@ -23,7 +23,7 @@ interface Props {
 }
 const { entry, newer, older } = Astro.props
 const cover = entry.data.image
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -32,7 +32,7 @@ const jsonLd = JSON.stringify({
   keywords: entry.data.tags,
   author: { '@type': 'Person', name: siteConfig.author, url: Astro.site },
   datePublished: entry.data.published.toISOString(),
-  url: new URL(getPostUrlBySlug(entry.slug), Astro.site),
+  url: new URL(getPostUrlBySlug(entry.id), Astro.site),
 }).replace(/</g, '\\u003c')
 ---
 <Layout title={entry.data.title} description={entry.data.description || entry.data.title} article>
@@ -46,11 +46,11 @@ const jsonLd = JSON.stringify({
       ? <img src={cover} alt={entry.data.title} class="post-cover" />
       : <Image src={cover} alt={entry.data.title} class="post-cover" />)}
     <div class="prose"><Content /></div>
-    <ArticleMedia body={entry.body} />
+    <ArticleMedia body={entry.body ?? ''} />
     <GoogleAd />
   </article>
   <nav class="post-navigation" aria-label="前後の記事">
-    {newer ? <a href={getPostUrlBySlug(newer.slug)}><span>新しい記事</span>{newer.data.title}</a> : <span></span>}
-    {older ? <a href={getPostUrlBySlug(older.slug)}><span>古い記事</span>{older.data.title}</a> : <span></span>}
+    {newer ? <a href={getPostUrlBySlug(newer.id)}><span>新しい記事</span>{newer.data.title}</a> : <span></span>}
+    {older ? <a href={getPostUrlBySlug(older.id)}><span>古い記事</span>{older.data.title}</a> : <span></span>}
   </nav>
 </Layout>

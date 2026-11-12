@@ -19,8 +19,8 @@ export const GET: APIRoute = async context => {
       title: post.data.title,
       pubDate: post.data.published,
       description: post.data.description,
-      link: getPostUrlBySlug(post.slug),
-      content: sanitizeHtml(parser.render(post.body), {
+      link: getPostUrlBySlug(post.id),
+      content: sanitizeHtml(parser.render(post.body ?? ''), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
         // Local source paths only resolve in Astro's article rendering pipeline.
         transformTags: {
