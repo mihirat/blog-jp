@@ -1,0 +1,17 @@
+---
+import { getSortedPosts, getTaxonomy } from '../utils/content-utils'
+import { getCategoryUrl, getTagUrl } from '../utils/url-utils'
+const posts = await getSortedPosts()
+const tags = getTaxonomy(posts, 'tags')
+const categories = getTaxonomy(posts, 'category')
+---
+<section class="taxonomy" aria-label="記事を探す">
+  <h2>カテゴリ</h2>
+  <ul class="category-list">
+    {categories.map(({ name, count }) => <li><a href={getCategoryUrl(name)}>{name === 'uncategorized' ? '未分類' : name} <span>({count})</span></a></li>)}
+  </ul>
+  <h2>タグ</h2>
+  <ul class="tag-list">
+    {tags.map(({ name, count }) => <li><a href={getTagUrl(name)}>#{name} <span>({count})</span></a></li>)}
+  </ul>
+</section>

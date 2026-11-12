@@ -1,0 +1,12 @@
+---
+import type { Page } from 'astro'
+interface Props {
+  page: Page
+}
+const { page } = Astro.props
+---
+{page.lastPage > 1 && <nav class="pagination" aria-label="ページネーション">
+  {page.url.prev ? <a href={page.url.prev} rel="prev" class="pagination-link">← 前のページ</a> : <span aria-hidden="true"></span>}
+  <span class="pagination-position" aria-current="page">{page.currentPage} / {page.lastPage}</span>
+  {page.url.next ? <a href={page.url.next} rel="next" class="pagination-link">次のページ →</a> : <span aria-hidden="true"></span>}
+</nav>}

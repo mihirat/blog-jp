@@ -1,55 +1,43 @@
-# 🍥Fuwari
+# Teche Note
 
-A static blog template built with [Astro](https://astro.build).
+Astro で静的生成する個人ブログ。表示は `.astro` コンポーネントと共通 CSS で構成しています。埋め込みの補助スクリプトは、対象のコンテンツがあるページで読み込みます。
 
-[**🖥️Live Demo (Vercel)**](https://fuwari.vercel.app)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**🌏中文 README**](https://github.com/saicaca/fuwari/blob/main/README.zh-CN.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**🌏日本語 README**](https://github.com/saicaca/fuwari/blob/main/README.ja-JP.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**📦Old Hexo Version**](https://github.com/saicaca/hexo-theme-vivia)
+## 開発
 
-![Preview Image](https://raw.githubusercontent.com/saicaca/resource/main/fuwari/home.png)
-
-## ✨ Features
-
-- [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
-- [x] Smooth animations and page transitions
-- [x] Light / dark mode
-- [x] Customizable theme colors & banner
-- [x] Responsive design
-- [ ] Comments
-- [x] Search
-- [ ] TOC
-
-## 🚀 How to Use
-
-1. [Generate a new repository](https://github.com/saicaca/fuwari/generate) from this template or fork this repository.
-2. To edit your blog locally, clone your repository, run `pnpm install` AND `pnpm add sharp` to install dependencies.  
-   - Install [pnpm](https://pnpm.io) `npm install -g pnpm` if you haven't.
-3. Edit the config file `src/config.ts` to customize your blog.
-4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
-5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment. 
-
-## ⚙️ Frontmatter of Posts
-
-```yaml
----
-title: My First Blog Post
-published: 2023-09-09
-description: This is the first post of my new Astro blog.
-image: /images/cover.jpg
-tags: [Foo, Bar]
-category: Front-end
-draft: false
----
+```sh
+npm ci
+npm run dev
+npm run build
+npm test
+npm run preview
 ```
 
-## 🧞 Commands
+`npm test` はビルド済みの `dist/` に対し、記事・ページネーション・タグ・カテゴリ・メタデータなどの回帰チェックを行います。先に `npm run build` を実行してください。別の一時ディレクトリで、階層を持つ記事・日本語と中国語のタグ・任意項目の省略・下書きもビルド検証します。
 
-All commands are run from the root of the project, from a terminal:
+## 記事と表示
 
-| Command                             | Action                                           |
-|:------------------------------------|:-------------------------------------------------|
-| `pnpm install` AND `pnpm add sharp` | Installs dependencies                            |
-| `pnpm dev`                          | Starts local dev server at `localhost:4321`      |
-| `pnpm build`                        | Build your production site to `./dist/`          |
-| `pnpm preview`                      | Preview your build locally, before deploying     |
-| `pnpm new-post <filename>`          | Create a new post                                |
-| `pnpm astro ...`                    | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro --help`                 | Get help using the Astro CLI                     |
+- 記事は `src/content/posts/` 以下の Markdown で管理します。サブディレクトリによる階層化と、frontmatter (`title`, `published`, `description`, `image`, `tags`, `category`, `draft`) に対応しています。
+- `draft: true` の記事は一覧・記事ページ・タグ・カテゴリ・RSS の生成対象外です。
+- 記事 URL は `/posts/<slug>/`、一覧は `/`, `/2/`, … です。
+- 記事内の画像・コードブロック・表・埋め込み HTML は Astro の Markdown 処理で描画します。見出しには ID が付与されます。
+- Iframely カードを含む記事では公式ローダーを読み込みます。`src/assets/images/` を指す画像のクリック先は、描画後に Astro の生成画像 URL に補正します。
+- `image` は記事相対パス、`public/` からの絶対パス、外部 URL に対応します。相対画像の解決には Astro 標準のコレクションスキーマを使います。
+- `npm run new-post -- <filename>` で記事を作成できます。
+- サイト名・著者・リンク・ページサイズ・解析 ID は `src/config.ts`、本文の組版とレイアウトは `src/styles/global.css` で変更します。
+- 日本語・中国語用のシステムフォントをフォールバックに含めています。Web フォントのダウンロードはありません。
+- ページネーション、タグ・カテゴリ、アーカイブ、About、RSS、サイトマップ、canonical、OGP を提供します。
+
+## Netlify
+
+リポジトリの `netlify.toml` にビルドコマンド `npm run build` と公開ディレクトリ `dist` を定義しています。静的生成なのでサーバーアダプターは不要です。パッケージ管理には npm を使い、`package-lock.json` でバージョンを固定しています。
+
+OGP 画像は Cloudinary の変換 URL を生成して表示します。`PUBLIC_CLOUDINARY_CLOUD_NAME` 未設定時は `src/assets/images/banner.png` を OGP 画像に使い、環境変数なしでもビルドできます。解析には Google Analytics を使います。広告は環境変数 `GATSBY_GOOGLE_ADSENSE_ID` と `GATSBY_GOOGLE_ADSENSE_SLOT_ID` が両方設定された場合のみ出力します。開発サーバーでは広告・解析を出力しません。
+
+## 配信と表示処理
+
+- RSS は記事本文を配信します。`markdown-it` は RSS 用の Markdown 変換、`sanitize-html` は配信 HTML からスクリプト等を除くために使用します。
+- バナーは CSS で切り抜き、元画像の余白と右端の線を非表示にしています。
+
+## ライセンス
+
+コードには [Fuwari](https://github.com/saicaca/fuwari) に由来する部分を含み、MIT ライセンスの著作権表示と利用条件を `LICENSE` に記載しています。ブログ記事・画像などのコンテンツの利用条件とは別です。

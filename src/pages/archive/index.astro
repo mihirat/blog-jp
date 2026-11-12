@@ -1,12 +1,16 @@
 ---
-import { getCollection, getEntry } from "astro:content";
-import MainGridLayout from "@layouts/MainGridLayout.astro";
-import ArchivePanel from "@components/ArchivePanel.astro";
-import {i18n} from "@i18n/translation";
-import I18nKey from "@i18n/i18nKey";
+import PostList from '../../components/PostList.astro'
+import Layout from '../../layouts/Layout.astro'
+import { getSortedPosts } from '../../utils/content-utils'
+const posts = await getSortedPosts()
+const years = [
+  ...new Set(posts.map(post => post.data.published.getUTCFullYear())),
+]
 ---
-
-<MainGridLayout title={i18n(I18nKey.archive)}>
-    <ArchivePanel></ArchivePanel>
-</MainGridLayout>
-
+<Layout title="アーカイブ">
+  <h1 class="visually-hidden">アーカイブ</h1>
+  {years.map(year => <section class="archive-year" aria-label={`${year}年の記事`}>
+    <h2>{year}</h2>
+    <PostList posts={posts.filter(post => post.data.published.getUTCFullYear() === year)} />
+  </section>)}
+</Layout>
