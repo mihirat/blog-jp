@@ -82,8 +82,13 @@ h1 { margin: 0 0 .4rem; }
 .prose li > p { margin-block: .5em; }
 .prose li + li { margin-top: .35em; }
 .prose ul, .prose ol { padding-inline-start: 1.6em; }
+.prose h1 { font-size: 1.125rem; }
 .prose h2 { margin: 2.75em 0 1em; padding-bottom: .45em; border-bottom: 1px solid var(--line); }
 .prose h3, .prose h4, .prose h5, .prose h6 { margin: 2em 0 .75em; }
+.prose h3 { font-size: .95rem; }
+.prose h4 { font-size: .9rem; }
+.prose h5 { font-size: .85rem; }
+.prose h6 { font-size: .8rem; }
 .prose :is(h1, h2, h3, h4, h5, h6) { scroll-margin-top: 1.5rem; }
 .prose img, .prose video { max-width: 100%; height: auto; }
 .prose iframe { max-width: 100%; border: 0; }
