@@ -24,6 +24,8 @@ interface Props {
 const { entry, newer, older } = Astro.props
 const cover = entry.data.image
 const { Content } = await render(entry)
+const bodyTitle = entry.body?.trimStart().match(/^#\s+(.+?)\s*#*\s*(?:\r?\n|$)/)?.[1]
+const hasBodyTitle = bodyTitle?.trim() === entry.data.title
 const jsonLd = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -39,7 +41,7 @@ const jsonLd = JSON.stringify({
   <script is:inline slot="head" type="application/ld+json" set:html={jsonLd}></script>
   <article>
     <header class="post-header">
-      <h1>{entry.data.title}</h1>
+      {!hasBodyTitle && <h1>{entry.data.title}</h1>}
       <PostMeta {...entry.data} />
     </header>
     {cover && (typeof cover === 'string'
